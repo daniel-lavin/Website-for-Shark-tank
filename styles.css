@@ -35,6 +35,44 @@ body {
   box-shadow: 0 0 12px rgba(110, 168, 255, 0.7);
 }
 
+.notice-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 7, 12, 0.74);
+}
+
+.notice-popup.hidden {
+  display: none;
+}
+
+.notice-popup-card {
+  width: min(520px, 100%);
+  background: linear-gradient(160deg, #13213b, #0d1524);
+  border: 1px solid #2f466d;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
+}
+
+.notice-popup-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.notice-popup-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.notice-close {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;

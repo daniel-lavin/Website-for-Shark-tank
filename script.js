@@ -3,11 +3,21 @@ const navLinks = document.querySelector(".nav-links");
 const revealItems = document.querySelectorAll(".scroll-reveal");
 const progressBar = document.querySelector(".scroll-progress");
 const parallaxItems = document.querySelectorAll(".parallax-layer");
+const noticePopup = document.querySelector(".notice-popup");
+const noticeClose = document.querySelector(".notice-close");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("open");
   });
+}
+
+if (noticePopup && noticeClose) {
+  const closePopup = () => {
+    noticePopup.classList.add("hidden");
+  };
+
+  noticeClose.addEventListener("click", closePopup);
 }
 
 if (revealItems.length > 0 && "IntersectionObserver" in window) {
