@@ -67,6 +67,49 @@ body {
   box-shadow: 0 0 12px rgba(110, 168, 255, 0.7);
 }
 
+body.access-locked {
+  overflow: hidden;
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 7, 12, 0.9);
+}
+
+.access-gate.hidden {
+  display: none;
+}
+
+.access-gate-card {
+  width: min(420px, 100%);
+  background: linear-gradient(160deg, #13213b, #0d1524);
+  border: 1px solid #2f466d;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
+  display: grid;
+  gap: 10px;
+}
+
+.access-gate-card h2 {
+  font-size: 1.2rem;
+}
+
+.access-gate-card p {
+  color: var(--muted);
+}
+
+.access-gate-error {
+  min-height: 1.2em;
+  color: #ffb4b4 !important;
+  font-size: 0.9rem;
+}
+
 .notice-popup {
   position: fixed;
   inset: 0;

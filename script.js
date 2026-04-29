@@ -5,6 +5,59 @@ const progressBar = document.querySelector(".scroll-progress");
 const parallaxItems = document.querySelectorAll(".parallax-layer");
 const noticePopup = document.querySelector(".notice-popup");
 const noticeClose = document.querySelector(".notice-close");
+const accessGate = document.querySelector("#access-gate");
+const accessGateForm = document.querySelector("#access-gate-form");
+const accessGateError = document.querySelector("#access-gate-error");
+const accessPasswordInput = document.querySelector("#access-password");
+
+const ACCESS_STORAGE_KEY = "icarusSiteAccessGranted";
+const ACCESS_HASH = "5e40e66a10fb68f18842078bb97dcd485e7ad82c05fed0641a9bd48a34a932df";
+
+async function sha256Hex(value) {
+  const data = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function unlockSite() {
+  document.body.classList.remove("access-locked");
+  if (accessGate) {
+    accessGate.classList.add("hidden");
+  }
+}
+
+async function initAccessGate() {
+  if (!accessGate || !accessGateForm || !accessPasswordInput) {
+    document.body.classList.remove("access-locked");
+    return;
+  }
+
+  const previouslyGranted = localStorage.getItem(ACCESS_STORAGE_KEY) === "true";
+  if (previouslyGranted) {
+    unlockSite();
+    return;
+  }
+
+  accessPasswordInput.focus();
+
+  accessGateForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const enteredPassword = accessPasswordInput.value || "";
+    const enteredHash = await sha256Hex(enteredPassword);
+
+    if (enteredHash === ACCESS_HASH) {
+      localStorage.setItem(ACCESS_STORAGE_KEY, "true");
+      accessGateError.textContent = "";
+      accessGateForm.reset();
+      unlockSite();
+      return;
+    }
+
+    accessGateError.textContent = "Incorrect password. Please try again.";
+  });
+}
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
@@ -55,4 +108,5 @@ function updateScrollEffects() {
 
 window.addEventListener("scroll", updateScrollEffects, { passive: true });
 window.addEventListener("resize", updateScrollEffects);
+initAccessGate();
 updateScrollEffects();
