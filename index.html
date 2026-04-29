@@ -143,10 +143,17 @@
 
     <div class="model-overlay" aria-hidden="true">
       <canvas id="plane-model-canvas"></canvas>
+      <p class="model-status" id="model-status">Loading 3D model...</p>
     </div>
 
-    <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.161.0/examples/js/loaders/STLLoader.js"></script>
     <script src="script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="model-viewer.js"></script>
   </body>
 </html>
