@@ -10,7 +10,7 @@ const accessGateForm = document.querySelector("#access-gate-form");
 const accessGateError = document.querySelector("#access-gate-error");
 const accessPasswordInput = document.querySelector("#access-password");
 
-const ACCESS_STORAGE_KEY = "icarusSiteAccessGranted";
+const ACCESS_STORAGE_KEY = "icarusSiteAccessGrantedHash";
 const ACCESS_HASH = "d19bfcb92e7da42722fd5b9679d739fd6633b73d4a4a7dd0a416e93a05fe7e7e";
 
 async function sha256Hex(value) {
@@ -34,7 +34,7 @@ async function initAccessGate() {
     return;
   }
 
-  const previouslyGranted = localStorage.getItem(ACCESS_STORAGE_KEY) === "true";
+  const previouslyGranted = localStorage.getItem(ACCESS_STORAGE_KEY) === ACCESS_HASH;
   if (previouslyGranted) {
     unlockSite();
     return;
@@ -48,7 +48,7 @@ async function initAccessGate() {
     const enteredHash = await sha256Hex(enteredPassword);
 
     if (enteredHash === ACCESS_HASH) {
-      localStorage.setItem(ACCESS_STORAGE_KEY, "true");
+      localStorage.setItem(ACCESS_STORAGE_KEY, ACCESS_HASH);
       accessGateError.textContent = "";
       accessGateForm.reset();
       unlockSite();
