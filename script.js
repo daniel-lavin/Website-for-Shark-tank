@@ -11,7 +11,7 @@ const accessGateError = document.querySelector("#access-gate-error");
 const accessPasswordInput = document.querySelector("#access-password");
 
 const ACCESS_STORAGE_KEY = "icarusSiteAccessGranted";
-const ACCESS_HASH = "5e40e66a10fb68f18842078bb97dcd485e7ad82c05fed0641a9bd48a34a932df";
+const ACCESS_HASH = "d19bfcb92e7da42722fd5b9679d739fd6633b73d4a4a7dd0a416e93a05fe7e7e";
 
 async function sha256Hex(value) {
   const data = new TextEncoder().encode(value);
