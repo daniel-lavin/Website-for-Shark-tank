@@ -1,7 +1,6 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const revealItems = document.querySelectorAll(".scroll-reveal");
-const progressBar = document.querySelector(".scroll-progress");
 const parallaxItems = document.querySelectorAll(".parallax-layer");
 const noticePopup = document.querySelector(".notice-popup");
 const noticeClose = document.querySelector(".notice-close");
@@ -93,12 +92,6 @@ if (revealItems.length > 0 && "IntersectionObserver" in window) {
 
 function updateScrollEffects() {
   const scrollTop = window.scrollY || window.pageYOffset;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-  if (progressBar) {
-    progressBar.style.width = `${Math.min(progress, 100)}%`;
-  }
 
   parallaxItems.forEach((item) => {
     const speed = Number(item.getAttribute("data-speed")) || 0.1;

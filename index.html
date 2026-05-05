@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="access-locked">
-    <div class="scroll-progress" aria-hidden="true"></div>
     <div class="access-gate" id="access-gate" role="dialog" aria-modal="true" aria-labelledby="access-gate-title">
       <form class="access-gate-card" id="access-gate-form">
         <h2 id="access-gate-title">Protected Access</h2>
@@ -40,7 +39,10 @@
     </div>
     <header class="site-header">
       <nav class="nav">
-        <div class="brand">Icarus</div>
+        <div class="brand">
+          <img class="brand-logo" src="logo.png" alt="Icarus logo" />
+          <span>Icarus</span>
+        </div>
         <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
         <ul class="nav-links">
           <li><a href="#technology">Technology</a></li>
@@ -73,21 +75,24 @@
         </div>
         <div class="grid three-col">
           <article class="card">
-            <h3>Solar-First Architecture</h3>
+            <h3>Long-Wing Solar Platform</h3>
             <p>
-              Every concept starts with solar efficiency as the first design constraint, not an add-on.
+              A long wingspan with slightly curved, upward-angled wings maximizes sunlight exposure and glides
+              smoothly for endurance missions.
             </p>
           </article>
           <article class="card">
-            <h3>Systems Thinking</h3>
+            <h3>Energy + Balance Core</h3>
             <p>
-              We design airframe, power, and control systems as one integrated product.
+              A smooth, narrow central body houses batteries, AI processing, and communications to keep weight
+              centered and stable during long flights.
             </p>
           </article>
           <article class="card">
-            <h3>Scalable Product Line</h3>
+            <h3>Scientific Data Collection</h3>
             <p>
-              Our goal is a portfolio of solar planes for different mission types, not a single model.
+              Underside sensor modules are integrated near the nose and centerline to capture precise weather
+              and environmental readings in-flight.
             </p>
           </article>
         </div>
@@ -100,22 +105,31 @@
         </div>
         <div class="grid three-col">
           <article class="card product-card">
-            <p class="model">Concept One</p>
-            <h3>Light Utility Plane</h3>
-            <p>A compact platform concept focused on efficiency, simplicity, and modularity.</p>
-            <span class="tag">Details: to be announced</span>
+            <p class="model">Airframe</p>
+            <h3>Sleek, Aerodynamic Body</h3>
+            <p>
+              Lightweight and streamlined with a smooth enclosed finish—built from sustainable components with
+              matte and subtle reflective surfaces.
+            </p>
+            <span class="tag">Purpose-built for long-range stability</span>
           </article>
           <article class="card product-card featured">
-            <p class="model">Concept Two</p>
-            <h3>Medium-Class Aircraft</h3>
-            <p>A larger configuration for longer missions and expanded equipment options.</p>
-            <span class="tag">Details: to be announced</span>
+            <p class="model">Wings</p>
+            <h3>Edge-to-Edge Solar Panels</h3>
+            <p>
+              Wide wings are covered in dark reflective solar cells, segmented into panel sections to highlight
+              the power system and high-tech design.
+            </p>
+            <span class="tag">Maximized sunlight capture</span>
           </article>
           <article class="card product-card">
-            <p class="model">Concept Three</p>
-            <h3>Advanced Long-Range Concept</h3>
-            <p>Our stretch concept for maximum endurance and next-generation capability.</p>
-            <span class="tag">Details: to be announced</span>
+            <p class="model">Systems</p>
+            <h3>Sensors + Communications Hub</h3>
+            <p>
+              Precision underside sensors gather atmospheric data, while a subtle top-mounted antenna module
+              transmits mission results to satellites or ground stations.
+            </p>
+            <span class="tag">Science-ready and connected</span>
           </article>
         </div>
       </section>

@@ -1,13 +1,14 @@
 :root {
-  --bg: #080b12;
-  --bg-soft: #0f1420;
-  --text: #eaf0ff;
-  --muted: #a9b3c9;
-  --line: #1d2638;
-  --accent: #6ea8ff;
-  --accent-strong: #4a8cff;
-  --card: #11192a;
-  --ok: #8be0c1;
+  --bg: #ffffff;
+  --bg-soft: #ffffff;
+  --text: #1e2a38;
+  --muted: rgba(30, 42, 56, 0.72);
+  --line: #00e6ff;
+  --accent: #00e6ff;
+  --accent-strong: #ffd44d;
+  --accent-warm: #ffb100;
+  --card: #ffffff;
+  --ok: #00e6ff;
 }
 
 * {
@@ -19,7 +20,7 @@
 html,
 body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top right, #111d35, var(--bg) 55%);
+  background: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
 }
@@ -42,9 +43,9 @@ body {
   bottom: 16px;
   right: 16px;
   z-index: 10;
-  background: rgba(7, 12, 22, 0.86);
-  border: 1px solid #2d3f61;
-  color: #d6e5ff;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  color: var(--text);
   font-size: 0.82rem;
   line-height: 1.4;
   padding: 8px 10px;
@@ -54,17 +55,6 @@ body {
 
 .model-status.hidden {
   display: none;
-}
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  z-index: 30;
-  background: linear-gradient(90deg, #8fb8ff, #6ea8ff, #4a8cff);
-  box-shadow: 0 0 12px rgba(110, 168, 255, 0.7);
 }
 
 body.access-locked {
@@ -78,7 +68,7 @@ body.access-locked {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(4, 7, 12, 0.9);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .access-gate.hidden {
@@ -87,8 +77,8 @@ body.access-locked {
 
 .access-gate-card {
   width: min(420px, 100%);
-  background: linear-gradient(160deg, #13213b, #0d1524);
-  border: 1px solid #2f466d;
+  background: #ffffff;
+  border: 1px solid var(--line);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
@@ -106,7 +96,7 @@ body.access-locked {
 
 .access-gate-error {
   min-height: 1.2em;
-  color: #ffb4b4 !important;
+  color: #c62828 !important;
   font-size: 0.9rem;
 }
 
@@ -117,7 +107,7 @@ body.access-locked {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(4, 7, 12, 0.74);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .notice-popup.hidden {
@@ -126,8 +116,8 @@ body.access-locked {
 
 .notice-popup-card {
   width: min(520px, 100%);
-  background: linear-gradient(160deg, #13213b, #0d1524);
-  border: 1px solid #2f466d;
+  background: #ffffff;
+  border: 1px solid var(--line);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
@@ -158,8 +148,8 @@ a {
   top: 0;
   z-index: 12;
   backdrop-filter: blur(14px);
-  background: rgba(8, 11, 18, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
@@ -172,8 +162,21 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
   letter-spacing: 0.2px;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid rgba(0, 230, 255, 0.55);
+  border-radius: 8px;
+  padding: 4px;
 }
 
 .menu-toggle {
@@ -188,7 +191,7 @@ a {
 }
 
 .nav-links a:hover {
-  color: var(--text);
+  color: var(--accent-strong);
 }
 
 main {
@@ -246,13 +249,19 @@ h1 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  background: var(--accent-strong);
   color: #07111f;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid rgba(0, 230, 255, 0.45);
+  outline-offset: 3px;
 }
 
 .btn-secondary {
@@ -266,8 +275,8 @@ h1 {
 }
 
 .hero-panel {
-  background: linear-gradient(160deg, #14223d, #0f1729);
-  border: 1px solid #273455;
+  background: #ffffff;
+  border: 1px solid var(--line);
   border-radius: 18px;
   padding: 24px;
   will-change: transform;
@@ -343,7 +352,7 @@ h2 {
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #2d3f61;
+  border-color: var(--accent);
   box-shadow: 0 14px 30px rgba(5, 8, 14, 0.38);
 }
 
@@ -412,9 +421,9 @@ label {
 input,
 select,
 textarea {
-  background: #0d1524;
+  background: #ffffff;
   color: var(--text);
-  border: 1px solid #22304a;
+  border: 1px solid var(--line);
   border-radius: 10px;
   padding: 11px 12px;
   font: inherit;
@@ -479,7 +488,7 @@ textarea:focus {
     width: min(230px, 88vw);
     flex-direction: column;
     gap: 10px;
-    background: #0f1729;
+    background: #ffffff;
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 12px;
