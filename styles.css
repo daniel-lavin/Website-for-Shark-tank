@@ -1,5 +1,5 @@
 :root {
-  --bg: #ffffff;
+  --bg: #f4fbff;
   --bg-soft: #ffffff;
   --text: #1e2a38;
   --muted: rgba(30, 42, 56, 0.72);
@@ -9,6 +9,10 @@
   --accent-warm: #ffb100;
   --card: #ffffff;
   --ok: #00e6ff;
+  --shadow: 0 14px 30px rgba(30, 42, 56, 0.12);
+  --text-highlight: rgba(255, 255, 255, 0.38);
+  --text-glow: rgba(0, 230, 255, 0.22);
+  --text-stroke: rgba(255, 255, 255, 0.38);
 }
 
 * {
@@ -23,6 +27,10 @@ body {
   background: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
+}
+
+main {
+  background: transparent;
 }
 
 .model-overlay {
@@ -43,7 +51,7 @@ body {
   bottom: 16px;
   right: 16px;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--card);
   border: 1px solid var(--line);
   color: var(--text);
   font-size: 0.82rem;
@@ -51,6 +59,7 @@ body {
   padding: 8px 10px;
   border-radius: 8px;
   max-width: 280px;
+  box-shadow: var(--shadow);
 }
 
 .model-status.hidden {
@@ -68,7 +77,7 @@ body.access-locked {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(244, 251, 255, 0.92);
 }
 
 .access-gate.hidden {
@@ -81,7 +90,7 @@ body.access-locked {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
+  box-shadow: var(--shadow);
   display: grid;
   gap: 10px;
 }
@@ -107,7 +116,7 @@ body.access-locked {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(244, 251, 255, 0.92);
 }
 
 .notice-popup.hidden {
@@ -120,7 +129,7 @@ body.access-locked {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 16px 38px rgba(3, 6, 11, 0.5);
+  box-shadow: var(--shadow);
 }
 
 .notice-popup-card h2 {
@@ -148,7 +157,7 @@ a {
   top: 0;
   z-index: 12;
   backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(244, 251, 255, 0.92);
   border-bottom: 1px solid var(--line);
 }
 
@@ -167,6 +176,10 @@ a {
   gap: 10px;
   font-weight: 700;
   letter-spacing: 0.2px;
+}
+
+.brand span {
+  display: inline-block;
 }
 
 .brand-logo {
@@ -224,6 +237,13 @@ h1 {
   line-height: 1.08;
   max-width: 14ch;
   margin-bottom: 18px;
+  background: linear-gradient(to bottom, transparent 10%, rgba(255, 255, 255, 0.8) 50%, transparent 90%);
+  color: var(--text);
+  -webkit-text-stroke: 0.6px var(--text-stroke);
+  text-shadow:
+    0 -0.9px 0 rgba(255, 255, 255, 0.30),
+    0 0 14px var(--text-glow),
+    0 1px 0 rgba(30, 42, 56, 0.10);
 }
 
 .hero-copy {
@@ -348,12 +368,13 @@ h2 {
   border-radius: 14px;
   padding: 18px;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 22px rgba(30, 42, 56, 0.08);
 }
 
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 14px 30px rgba(5, 8, 14, 0.38);
+  box-shadow: var(--shadow);
 }
 
 .card h3 {
@@ -377,20 +398,21 @@ h2 {
 .product-card .tag {
   margin-top: 12px;
   display: inline-block;
-  border: 1px solid #2e4268;
+  border: 1px solid var(--line);
   padding: 5px 9px;
   border-radius: 999px;
-  color: #bfdbff;
+  color: var(--text);
+  background: rgba(0, 230, 255, 0.08);
   font-size: 0.82rem;
 }
 
 .featured {
-  border-color: #4672ba;
-  box-shadow: 0 0 0 1px rgba(110, 168, 255, 0.22) inset;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(0, 230, 255, 0.18) inset;
 }
 
 .section-dark {
-  background: rgba(16, 23, 38, 0.75);
+  background: rgba(0, 230, 255, 0.06);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 36px 24px;
@@ -432,7 +454,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 2px solid rgba(110, 168, 255, 0.35);
+  outline: 2px solid rgba(0, 230, 255, 0.35);
   border-color: var(--accent);
 }
 
@@ -449,6 +471,7 @@ textarea:focus {
   padding: 24px 20px 40px;
   position: relative;
   z-index: 8;
+  background: rgba(244, 251, 255, 0.92);
 }
 
 @media (max-width: 900px) {
@@ -472,8 +495,8 @@ textarea:focus {
 @media (max-width: 680px) {
   .menu-toggle {
     display: block;
-    border: 1px solid #243148;
-    background: transparent;
+    border: 1px solid var(--line);
+    background: #ffffff;
     color: var(--text);
     border-radius: 8px;
     padding: 6px 10px;
