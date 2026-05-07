@@ -167,7 +167,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 4px 20px;
 }
 
 .brand {
@@ -183,13 +183,9 @@ a {
 }
 
 .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
-  background: #ffffff;
-  border: 1px solid rgba(0, 230, 255, 0.55);
-  border-radius: 8px;
-  padding: 4px;
 }
 
 .menu-toggle {
