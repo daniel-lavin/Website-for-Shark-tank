@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icarus | Merch</title>
+    <meta
+      name="description"
+      content="Official Icarus merchandise for the solar-powered aircraft project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="access-locked">
+    <div class="access-gate" id="access-gate" role="dialog" aria-modal="true" aria-labelledby="access-gate-title">
+      <form class="access-gate-card" id="access-gate-form">
+        <h2 id="access-gate-title">Protected Access</h2>
+        <p>Enter the site password to continue.</p>
+        <label for="access-password">Password</label>
+        <input id="access-password" name="password" type="password" autocomplete="current-password" required />
+        <p class="access-gate-error" id="access-gate-error" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit">Unlock Site</button>
+      </form>
+    </div>
+    <div class="notice-popup" role="dialog" aria-modal="true" aria-labelledby="project-notice-title">
+      <div class="notice-popup-card">
+        <h2 id="project-notice-title">School Project Notice</h2>
+        <p>
+          This is not a real company website. It is a school project created for a Shark Tank
+          class presentation.
+        </p>
+        <button class="btn btn-primary notice-close" type="button">I Understand</button>
+      </div>
+    </div>
+    <header class="site-header">
+      <nav class="nav">
+        <div class="brand">
+          <img class="brand-logo" src="images/logo.png" alt="Icarus logo" />
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#merch">Merch</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="merch" class="section scroll-reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Store</p>
+          <h2>Official Merchandise</h2>
+        </div>
+        <div class="grid three-col">
+          <article class="card product-card">
+            <img src="images/white_hoodie.png" alt="White Hoodie" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>White Hoodie</h3>
+            <p>
+              Comfortable white hoodie with Icarus design.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/black_hoodie.png" alt="Black Hoodie" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>Black Hoodie</h3>
+            <p>
+              Stylish black hoodie featuring the Icarus logo.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/mixed_b-w_hoodie.png" alt="Black and White Hoodie" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>Black and White Hoodie</h3>
+            <p>
+              Black and white hoodie with unique Icarus design.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/black_shirt.png" alt="Black Shirt" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>Black Shirt</h3>
+            <p>
+              Modern black shirt with streetwear design.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/black_pants.png" alt="Black Pants" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>Black Pants</h3>
+            <p>
+              Black pants matching the Icarus collection.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/white_pants.png" alt="White Pants" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>White Pants</h3>
+            <p>
+              White pants for a clean look.
+            </p>
+            <span class="tag">$50</span>
+          </article>
+          <article class="card product-card">
+            <img src="images/baseball cap.png" alt="Baseball Cap" style="width:100%; border-radius:10px; margin-bottom:10px;" />
+            <h3>Baseball Cap</h3>
+            <p>
+              Curved baseball cap with magnific design.
+            </p>
+            <span class="tag">$20</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Icarus © 2026. Shark Tank school project on solar planes.</p>
+    </footer>
+
+    <div class="model-overlay" aria-hidden="true">
+      <canvas id="plane-model-canvas"></canvas>
+      <p class="model-status" id="model-status">Loading 3D model...</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="model-viewer.js"></script>
+  </body>
+</html>
